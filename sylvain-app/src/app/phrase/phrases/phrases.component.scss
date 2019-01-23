@@ -2,6 +2,7 @@ ul {
   display: flex;
   flex-direction: column;
   padding: 4px 18.5px;
+  margin: 0;
 }
 
 li {
@@ -32,5 +33,9 @@ sa-button {
   li {
     width: 44%;
     margin: 0 3%;
+
+    &:last-child {
+      border-bottom: 1px solid #a5a6a6;
+    }
   }
 }
