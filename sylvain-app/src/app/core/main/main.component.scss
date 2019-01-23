@@ -1,0 +1,52 @@
+.cover {
+  height: calc(100vh + 100px);
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.gradiant {
+  width: 100%;
+  height: 100%;
+  background-color: #2196f3;
+}
+
+.container {
+  position: relative;
+  top: 170px;
+  margin-bottom: 20px;
+
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: auto;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.picture {
+  display: none;
+}
+
+@media only screen and (min-width : 641px){
+  .container {
+    top: 20px;
+    padding-left: 200px;
+    max-width: 60%;
+    min-height: 240px;
+  }
+
+  .picture {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    border-radius: 200px;
+    background-size: 120%;
+    background-position: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
