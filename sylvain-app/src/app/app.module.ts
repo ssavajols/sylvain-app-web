@@ -9,6 +9,6 @@ import { SharedModule } from './shared/shared.module';
   declarations: [AppComponent],
   imports: [BrowserModule, CoreModule, SharedModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

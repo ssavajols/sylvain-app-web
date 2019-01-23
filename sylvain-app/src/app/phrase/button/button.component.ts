@@ -4,10 +4,16 @@ import { IPhrase } from '../phrases.service';
 @Component({
   selector: 'sa-button',
   template: `
-    <button (click)="play()" [ngStyle]="phrase.styles">Click me</button
-    ><audio #audio src="{{ phrase.src }}"></audio>
+    <div class="sa-button" (click)="play()">
+      <div class="caption">
+        <p>{{ phrase.label }}</p>
+        <sub>Click to play</sub>
+      </div>
+      <button><img src="/assets/baseline-play_circle_filled-24px.svg" /></button
+      ><audio #audio src="{{ phrase.src }}"></audio>
+    </div>
   `,
-  styleUrls: ['./button.component.scss']
+  styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
   @Input() phrase: IPhrase;

@@ -1,17 +1,25 @@
 ul {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 0;
+  flex-direction: column;
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: auto;
+  border-radius: 10px;
+  max-width: 80%;
+  padding: 4px 18.5px;
 }
 
 li {
   display: flex;
-  width: 50%;
+  width: 100%;
   justify-content: center;
-  margin: 20px 0;
+  border-bottom: 1px solid #a5a6a6;
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
-li:nth-child(3) {
-  width: 100%;
+sa-button {
+  flex: 1;
 }
