@@ -35,12 +35,12 @@ describe('MainComponent', () => {
   });
 
   it('should compute styles when window scroll is triggered', () => {
-    component.computeStyle = jasmine.createSpy('computeStyle');
+    component.getStyle = jasmine.createSpy('getStyle');
     (window as any).scrollY = 33;
 
     window.dispatchEvent(new Event('scroll'));
 
-    expect(component.computeStyle).toHaveBeenCalledWith(0.33);
+    expect(component.getStyle).toHaveBeenCalledWith(0.33);
   });
 
   it('should compute styles with correct gradient position', () => {
@@ -51,11 +51,26 @@ describe('MainComponent', () => {
   });
 
   it('should compute style with correct background image and position', () => {
-    component.backgroundImage = 'toto.jpg';
+    component.backgroundImage.backgroundImage = 'url(toto.jpg)';
 
     const background = component.computeStyle(0.3).background;
 
     expect(background).toContain('url(toto.jpg)');
     expect(background).toContain('-121px');
+  });
+
+  it('should compute style without background image', () => {
+    component.color = {
+      r: 101,
+      g: 102,
+      b: 103,
+    };
+
+    (window as any).innerWidth = 1024;
+
+    const background = component.computeWithoutBackgroundImage().background;
+
+    expect(background).not.toContain('url(toto.jpg)');
+    expect(background).toContain('101,102,103,1');
   });
 });

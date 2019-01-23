@@ -6,12 +6,15 @@ import { GlobalService } from '../global.service';
   selector: 'sa-main',
   template: `
     <div class="cover" [ngStyle]="styles"></div>
-    <div class="container"><sa-phrases></sa-phrases></div>
+    <div class="container">
+      <div class="picture" [ngStyle]="backgroundImage"></div>
+      <sa-phrases></sa-phrases>
+    </div>
   `,
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit, OnDestroy {
-  backgroundImage = this._global.backgroundImage;
+  backgroundImage = { backgroundImage: `url(${this._global.backgroundImage})` };
   color = this._global.getColor();
   styles;
   scrollEvent: Subscription;
@@ -19,14 +22,25 @@ export class MainComponent implements OnInit, OnDestroy {
   constructor(private _global: GlobalService) {}
 
   ngOnInit() {
-    this.styles = this.computeStyle(0);
+    this.styles = this.getStyle(0);
     this.scrollEvent = fromEvent(window, 'scroll').subscribe(() => {
-      this.styles = this.computeStyle(window.scrollY / 100);
+      this.styles = this.getStyle(window.scrollY / 100);
+    });
+    this.scrollEvent = fromEvent(window, 'resize').subscribe(() => {
+      this.styles = this.getStyle(window.scrollY / 100);
     });
   }
 
   ngOnDestroy() {
     this.scrollEvent.unsubscribe();
+  }
+
+  getStyle(percent?: number) {
+    if (this._global.getBreakpoint() === 'XS') {
+      return this.computeStyle(percent);
+    }
+
+    return this.computeWithoutBackgroundImage();
   }
 
   computeStyle(percent: number = 1) {
@@ -40,9 +54,17 @@ export class MainComponent implements OnInit, OnDestroy {
 
     return {
       background: `linear-gradient(rgba(${r},${g},${b},0) ${startGradient}px, rgba(${r},${g},${b},1) ${endGradient}px),
-                    url(${
-                      this.backgroundImage
-                    }) no-repeat 0 ${position}px / 100%`,
+                    ${
+                      this.backgroundImage.backgroundImage
+                    } no-repeat 0 ${position}px / 100%`,
+    };
+  }
+
+  computeWithoutBackgroundImage() {
+    const { r, g, b } = this.color;
+
+    return {
+      background: `rgba(${r},${g},${b},1)`,
     };
   }
 }

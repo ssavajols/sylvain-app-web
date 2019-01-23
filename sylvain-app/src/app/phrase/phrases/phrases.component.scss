@@ -1,11 +1,6 @@
 ul {
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
-  background-color: rgba(255, 255, 255, 0.8);
-  margin: auto;
-  border-radius: 10px;
-  max-width: 80%;
   padding: 4px 18.5px;
 }
 
@@ -22,4 +17,20 @@ li {
 
 sa-button {
   flex: 1;
+}
+
+@media only screen and (min-width : 641px){
+  .cover {
+    display: none
+  }
+
+  ul {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  li {
+    width: 44%;
+    margin: 0 3%;
+  }
 }
