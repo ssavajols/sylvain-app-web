@@ -8,6 +8,8 @@ type IBreakpoint = 'XS' | 'SM' | 'MD' | 'LG';
 export class GlobalService {
   constructor() {}
 
+  dataSource = 'assets/data/phrases.json';
+
   backgroundImage = 'assets/IMG_0089.JPG';
 
   getColor() {
