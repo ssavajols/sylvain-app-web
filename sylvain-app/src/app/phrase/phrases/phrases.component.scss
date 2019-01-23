@@ -1,17 +1,36 @@
 ul {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 0;
+  flex-direction: column;
+  padding: 4px 18.5px;
 }
 
 li {
   display: flex;
-  width: 50%;
+  width: 100%;
   justify-content: center;
-  margin: 20px 0;
+  border-bottom: 1px solid #a5a6a6;
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
-li:nth-child(3) {
-  width: 100%;
+sa-button {
+  flex: 1;
+}
+
+@media only screen and (min-width : 641px){
+  .cover {
+    display: none
+  }
+
+  ul {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  li {
+    width: 44%;
+    margin: 0 3%;
+  }
 }

@@ -12,28 +12,10 @@ import { map } from 'rxjs/operators';
       </li>
     </ul>
   `,
-  styleUrls: ['./phrases.component.scss']
+  styleUrls: ['./phrases.component.scss'],
 })
 export class PhrasesComponent {
   constructor(private _phrasesService: PhrasesService) {}
 
-  phrases: Observable<IPhrase[]> = this._phrasesService.phrases$.pipe(
-    map(phrases =>
-      phrases.map(phrase => {
-        phrase.styles = this.computeStyles();
-        return phrase;
-      })
-    )
-  );
-
-  computeStyles() {
-    const x = Math.round(Math.random() * 20) - 10;
-    const y = Math.round(Math.random() * 20) - 10;
-    const rotate = Math.round(Math.random() * 20) - 10;
-
-    return {
-      margin: `${x}px ${y}px`,
-      transform: `rotate(${rotate}deg)`
-    };
-  }
+  phrases: Observable<IPhrase[]> = this._phrasesService.phrases$;
 }

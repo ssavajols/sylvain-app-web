@@ -5,13 +5,14 @@ export interface IPhrase {
   id: number;
   src: string;
   styles?: any;
+  label?: string;
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class PhrasesService {
-  BASE_URI = 'https://interactive-examples.mdn.mozilla.net';
+  BASE_URI = '/assets';
   constructor() {}
 
   phrases$: Observable<IPhrase[]> = of();
