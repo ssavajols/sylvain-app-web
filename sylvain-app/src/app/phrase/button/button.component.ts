@@ -6,7 +6,7 @@ import { IPhrase } from '../phrases.service';
   template: `
     <div class="sa-button" (click)="play()">
       <div class="caption">
-        <p>{{ phrase.label || 'Audio : ' + phrase.id }}</p>
+        <div>{{ phrase.label || 'Audio : ' + phrase.id }}</div>
         <sub>Click to play</sub>
       </div>
       <button>
@@ -24,7 +24,7 @@ import { IPhrase } from '../phrases.service';
       ><audio #audio src="{{ phrase.src }}"></audio>
     </div>
   `,
-  styleUrls: ['./button.component.scss'],
+  styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent {
   @Input() phrase: IPhrase;
@@ -32,7 +32,10 @@ export class ButtonComponent {
 
   @ViewChild('audio') audio: ElementRef;
 
+  volume = 0.3;
+
   play() {
+    this.audio.nativeElement.volume = this.volume;
     this.audio.nativeElement.play();
     console.log('play', this.phrase);
   }

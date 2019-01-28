@@ -1,26 +1,32 @@
 [
   {
     "id": 1,
-    "src": "/assets/media/t-rex-roar.mp3"
+    "src": "/assets/media/braquer-1.mp3",
+    "label": "Se braquer 1"
   },
   {
     "id": 2,
-    "src": "/assets/media/t-rex-roar.mp3"
+    "src": "/assets/media/cafe.mp3",
+    "label": "Café ?"
   },
   {
     "id": 3,
-    "src": "/assets/media/t-rex-roar.mp3"
+    "src": "/assets/media/enerve.mp3",
+    "label": "Enervé ?"
   },
   {
     "id": 4,
-    "src": "/assets/media/t-rex-roar.mp3"
+    "src": "/assets/media/braquer-2.mp3",
+    "label": "Se braquer 2"
   },
   {
     "id": 5,
-    "src": "/assets/media/t-rex-roar.mp3"
+    "src": "/assets/media/queue.mp3",
+    "label": "Queue"
   },
   {
     "id": 6,
-    "src": "/assets/media/t-rex-roar.mp3"
+    "src": "/assets/media/decu.mp3",
+    "label": "Déçu !"
   }
 ]
