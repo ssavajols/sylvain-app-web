@@ -37,6 +37,5 @@ export class ButtonComponent {
   play() {
     this.audio.nativeElement.volume = this.volume;
     this.audio.nativeElement.play();
-    console.log('play', this.phrase);
   }
 }
