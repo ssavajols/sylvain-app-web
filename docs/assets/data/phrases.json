@@ -28,5 +28,15 @@
     "id": 6,
     "src": "/assets/media/decu.mp3",
     "label": "Déçu !"
+  },
+  {
+    "id": 7,
+    "src": "/assets/media/autiste.mp3",
+    "label": "Autiste"
+  },
+  {
+    "id": 8,
+    "src": "/assets/media/calme-toi.mp3",
+    "label": "Calme-toi !"
   }
 ]
